@@ -26,6 +26,10 @@ const fetchPendingEmail = async (timeStamp) => {
   }
 };
 
+const testingQueue = async (data) => {
+  console.log("inside the mailservice layer", data.toString());
+};
+
 const updateTicket = async (tickedId, data) => {
   try {
     const response = await repo.update(tickedId, data);
@@ -50,4 +54,5 @@ module.exports = {
   fetchPendingEmail,
   createNotification,
   updateTicket,
+  testingQueue,
 };
