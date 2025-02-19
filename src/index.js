@@ -20,18 +20,12 @@ const setupAndStartServer = async () => {
   app.post("/api/v1/tickets", TicketController.create);
 
   const channel = await createChannel();
-  subscribeMessage(channel, EmailService.testingQueue, REMINDER_BINDING_KEY);
+  subscribeMessage(channel, EmailService.subscribeEvents, REMINDER_BINDING_KEY);
 
   app.listen(PORT, async () => {
     console.log(`server started at port ${PORT}`);
 
     job();
-    // sendBasicEmail(
-    //   "support@gmail.com",
-    //   "xyz@gmail.com",
-    //   "This is a test email",
-    //   "Hey, how are you, I hope you like the support"
-    // );
   });
 };
 
